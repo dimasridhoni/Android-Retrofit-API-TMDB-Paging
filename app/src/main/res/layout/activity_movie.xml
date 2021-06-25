@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--~
+  ~ Created by Dimas Ridhoni on 6/25/21 11:12 PM
+  ~ Copyright (c) 2021 . All rights reserved.
+  ~ Last modified 6/25/21 11:11 PM
+  -->
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.dimasridhoni.bankmandiri.activity.MovieActivity">
+
+    <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
+
+        <RelativeLayout
+                android:id="@+id/relativeLayoutSp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_corners"
+                android:orientation="horizontal"
+                android:layout_margin="5dp">
+
+            <Spinner
+                android:id="@+id/sp_genre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:layout_marginLeft="5dp"
+                android:paddingLeft="5dp"
+                android:spinnerMode="dropdown" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:src="@drawable/spinner" />
+        </RelativeLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/main_swiperefresh"
+            android:layout_below="@id/relativeLayoutSp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/main_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:paddingTop="@dimen/activity_margin_content"
+                android:paddingBottom="@dimen/activity_margin_content"/>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <ProgressBar
+            android:id="@+id/main_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+
+    <include layout="@layout/error_layout"/>
+
+    </RelativeLayout>
+
+</FrameLayout>

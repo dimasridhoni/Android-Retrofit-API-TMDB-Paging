@@ -1,0 +1,20 @@
+<!--~
+  ~ Created by Dimas Ridhoni on 6/25/21 11:12 PM
+  ~ Copyright (c) 2021 . All rights reserved.
+  ~ Last modified 6/25/21 11:11 PM
+  -->
+
+<resources>
+    <string name="app_name">Tes Bank Mandiri - Dimas Ridhoni</string>
+    <string name="my_api_key">b1ed7a1fd35acb1b93e3b0ea6c420303</string>
+    <string name="error_msg">Sorry! Couldn\'t fetch movies.</string>
+    <string name="btn_retry">Retry</string>
+    <string name="error_msg_no_internet">Not connected to internet</string>
+    <string name="error_msg_timeout">The server took too long to respond</string>
+    <string name="error_msg_unknown">An unexpected error occurred</string>
+    <string name="tap_to_reload">Tap to reload</string>
+    <string name="menu_refresh">Refresh</string>
+    <string name="appbar_scrolling_view_behavior" translatable="false">
+        com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior
+    </string>
+</resources>

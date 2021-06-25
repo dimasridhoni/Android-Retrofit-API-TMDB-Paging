@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--~
+  ~ Created by Dimas Ridhoni on 6/25/21 11:12 PM
+  ~ Copyright (c) 2021 . All rights reserved.
+  ~ Last modified 6/25/21 11:11 PM
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activity.MainActivity">
+
+
+    <GridLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="0dp"
+            android:columnCount="1">
+
+        <include android:id="@+id/carousel"
+                 layout="@layout/content_carousel"
+                 android:visibility="visible" />
+
+
+        <LinearLayout
+                android:id="@+id/menuLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="50dp"
+                android:padding="10dp">
+
+
+            <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:id="@+id/layout1"
+                    android:orientation="vertical">
+
+                <ImageButton
+                        android:id="@+id/btnGenre"
+                        android:contentDescription="Genre"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_view_list_blue_24dp"
+                        android:background="@drawable/rounded_corners"/>
+
+                <TextView
+                        android:id="@+id/tvGenre"
+                        android:layout_marginTop="5dp"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
+                        android:text="Official genres"
+                        android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:id="@+id/layout2"
+                    android:orientation="vertical">
+
+                <ImageButton
+                        android:id="@+id/btnMovie"
+                        android:layout_gravity="center_horizontal"
+                        android:contentDescription="Movie"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_movie_blue_24dp"
+                        android:background="@drawable/rounded_corners"/>
+
+                <TextView
+                        android:id="@+id/tvMovie"
+                        android:layout_marginTop="5dp"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
+                        android:text="Discover movies \nby genre"
+                        android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <!--<LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:id="@+id/layout3"
+                    android:orientation="vertical">
+
+                <ImageButton
+                        android:id="@+id/btnPermutasi"
+                        android:contentDescription="Logout"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_movie_blue_24dp"
+                        android:background="@drawable/rounded_corners"/>
+
+                <TextView
+                        android:id="@+id/tvPermutasi"
+                        android:layout_marginTop="5dp"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:layout_width="76dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textColor="@color/black"/>
+
+            </LinearLayout>-->
+
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:padding="8dp"
+                android:orientation="vertical">
+
+            <TextView
+                    android:id="@+id/tv"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textAlignment="center"
+                    android:text="Dimas Ridhoni"
+                    android:textColor="@color/black"/>
+
+        </LinearLayout>
+
+    </GridLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

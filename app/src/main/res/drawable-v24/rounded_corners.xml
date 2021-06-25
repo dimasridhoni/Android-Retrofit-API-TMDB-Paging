@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--~
+  ~ Created by Dimas Ridhoni on 6/25/21 11:12 PM
+  ~ Copyright (c) 2021 . All rights reserved.
+  ~ Last modified 6/25/21 11:11 PM
+  -->
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#FFF" />
+    <corners android:radius="8dp" />
+    <stroke
+        android:width="1dp"
+        android:color="@color/gray"/>
+</shape>

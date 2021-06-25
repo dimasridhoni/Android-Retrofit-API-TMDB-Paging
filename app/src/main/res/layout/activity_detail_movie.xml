@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.dimasridhoni.bankmandiri.activity.MovieActivity">
+
+    <androidx.cardview.widget.CardView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_margin_half"
+            android:layout_marginEnd="@dimen/activity_margin_half"
+            android:layout_marginLeft="@dimen/activity_margin_half"
+            android:layout_marginRight="@dimen/activity_margin_half"
+            android:layout_marginTop="@dimen/activity_margin_half"
+            android:layout_marginStart="@dimen/activity_margin_half"
+            app:cardBackgroundColor="@color/placeholder_grey"
+            app:cardCornerRadius="3dp"
+            app:cardPreventCornerOverlap="false">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/activity_margin">
+
+            <ImageView
+                    android:id="@+id/movie_poster"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/poster_hero_height"
+                    tools:background="@color/colorAccent"/>
+
+            <LinearLayout
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical" >
+
+                <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                        android:id="@+id/youtube_player_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:videoId="XEMwSdne6UE"
+                        app:autoPlay="false"
+                        app:showFullScreenButton="false" />
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                <TextView
+                        android:id="@+id/movie_title"
+                        style="@style/TextAppearance.AppCompat.Subhead.Inverse"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLength="40"
+                        android:maxLines="1"
+                        android:textSize="24dp"
+                        android:textStyle="bold"/>
+
+                <TextView
+                        android:id="@+id/movie_year"
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:alpha="0.4"
+                        android:gravity="end"
+                        android:maxLines="1"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <TextView
+                    android:id="@+id/movie_desc"
+                    style="@style/TextAppearance.AppCompat.Caption"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_margin_half"
+                    android:alpha="0.7"
+                    android:textSize="12dp"
+                    android:textColor="@android:color/white"/>
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                    android:id="@+id/main_swiperefresh"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/main_recycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clipToPadding="false"
+                        android:paddingTop="@dimen/activity_margin_half"
+                        android:paddingBottom="@dimen/activity_margin_half"/>
+
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+            <ProgressBar
+                    android:id="@+id/main_progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"/>
+
+            <include layout="@layout/error_layout"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>
