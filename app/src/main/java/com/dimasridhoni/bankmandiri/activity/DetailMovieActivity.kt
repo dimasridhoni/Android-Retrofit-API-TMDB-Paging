@@ -74,7 +74,7 @@ class DetailMovieActivity : AppCompatActivity(), PaginationAdapterCallback {
         title = i.getStringExtra("title")
         overview = i.getStringExtra("overview")
         image = i.getStringExtra("image")
-        loadImage(image!!)
+        loadImage(image ?: "xbSuFiJbbBWCkyCCKIMfuDCA4yV.jpg")
         mMovieTitle?.setText(title)
         mMovieDesc?.setText(overview)
         rv = findViewById(R.id.main_recycler)
@@ -163,30 +163,6 @@ class DetailMovieActivity : AppCompatActivity(), PaginationAdapterCallback {
         // To ensure list is visible when retry button in error view is clicked
         hideErrorView()
         currentPage = PAGE_START
-        callVideosApi(id).enqueue(object : Callback<ResultVideos> {
-            override fun onResponse(call: Call<ResultVideos>, response: Response<ResultVideos>) {
-                hideErrorView()
-                val videos = fetchResultsVideo(response)
-                progressBar!!.visibility = View.GONE
-                val youTubePlayerView = findViewById<YouTubePlayerView>(R.id.youtube_player_view)
-                lifecycle.addObserver(youTubePlayerView)
-
-                youTubePlayerView.addYouTubePlayerListener(object :
-                    AbstractYouTubePlayerListener() {
-                    override fun onReady(youTubePlayer: YouTubePlayer) {
-                        val videoId = videos?.get(0)?.key
-                        videoId?.let { youTubePlayer.loadVideo(it, 0f) }
-                    }
-                })
-
-                isLastPage = true
-            }
-
-            override fun onFailure(call: Call<ResultVideos>, t: Throwable) {
-                t.printStackTrace()
-                showErrorView(t)
-            }
-        })
 
         callReviewsApi(id).enqueue(object : Callback<ResultReview> {
             override fun onResponse(call: Call<ResultReview>, response: Response<ResultReview>) {
@@ -206,6 +182,36 @@ class DetailMovieActivity : AppCompatActivity(), PaginationAdapterCallback {
             }
 
             override fun onFailure(call: Call<ResultReview>, t: Throwable) {
+                t.printStackTrace()
+                showErrorView(t)
+            }
+        })
+
+        callVideosApi(id).enqueue(object : Callback<ResultVideos> {
+            override fun onResponse(call: Call<ResultVideos>, response: Response<ResultVideos>) {
+                hideErrorView()
+                val videos = fetchResultsVideo(response)
+                progressBar!!.visibility = View.GONE
+                val youTubePlayerView = findViewById<YouTubePlayerView>(R.id.youtube_player_view)
+                lifecycle.addObserver(youTubePlayerView)
+
+                youTubePlayerView.addYouTubePlayerListener(object :
+                    AbstractYouTubePlayerListener() {
+                    override fun onReady(youTubePlayer: YouTubePlayer) {
+                        if (videos.size>0) {
+                            val videoId = videos.get(0).key ?: "ZxMTar5F4Ak"
+                            videoId?.let { youTubePlayer.loadVideo(it, 0f) }
+                        } else {
+                            val videoId = "ZxMTar5F4Ak"
+                            videoId?.let { youTubePlayer.loadVideo(it, 0f) }
+                        }
+                    }
+                })
+
+                isLastPage = true
+            }
+
+            override fun onFailure(call: Call<ResultVideos>, t: Throwable) {
                 t.printStackTrace()
                 showErrorView(t)
             }
